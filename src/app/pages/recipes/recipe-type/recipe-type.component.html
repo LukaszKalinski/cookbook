@@ -1,1 +1,13 @@
-<p>recipe-type works!</p>
+<div class="cont" (mouseenter)="onStartHover()" (mouseleave)="onEndHover()" >
+  <div class="row m-0 p-0" >
+    <div class="col m-0 p-0 singlecont" [@titlesWhiteToBlack]="isHover">
+      <div class="textcont" >
+        <h2>{{ recipeType.name }}</h2>
+        <h3>{{ recipeType.shortDescription }}</h3>
+      </div>
+    </div>
+    <div class="col m-0 p-0 singlecont">
+      <img [src]="recipeType.urlImg" *ngIf="isHover" [@enterImage]>
+    </div>
+  </div>
+</div>

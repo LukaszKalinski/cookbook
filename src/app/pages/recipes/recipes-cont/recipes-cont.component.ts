@@ -1,14 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RecipeType } from 'src/app/classes/recipe-type.model';
 import { Store } from '@ngrx/store';
-import * as fromApp from '../../../store/app.reducer';
 import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+
+import * as fromApp from '../../../store/app.reducer';
 
 @Component({
   selector: 'app-recipes-cont',
   templateUrl: './recipes-cont.component.html',
-  styleUrls: ['./recipes-cont.component.sass']
+  styleUrls: ['./recipes-cont.component.sass'],
 })
 
 export class RecipesContComponent implements OnInit, OnDestroy {
@@ -32,5 +32,4 @@ export class RecipesContComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
 }

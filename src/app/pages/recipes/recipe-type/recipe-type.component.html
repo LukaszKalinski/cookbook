@@ -1,4 +1,4 @@
-<div class="cont" (mouseenter)="onStartHover()" (mouseleave)="onEndHover()" >
+<div class="cont" (mouseenter)="onStartHover()" (mouseleave)="onEndHover()" (click)="onClick(recipeType.name)">
   <div class="row m-0 p-0" >
     <div class="col m-0 p-0 singlecont" [@titlesWhiteToBlack]="isHover">
       <div class="textcont" >

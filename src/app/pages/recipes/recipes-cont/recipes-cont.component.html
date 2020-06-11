@@ -1,3 +1,8 @@
 <div class="cont" *ngFor="let type of allRecipeTypes">
-  <app-recipe-type [recipeType]="type"></app-recipe-type>
+  <ng-container *ngIf="(!selectedRecipeType || selectedRecipeType === type.name)">
+    <app-recipe-type [recipeType]="type"></app-recipe-type>
+  </ng-container>
+</div>
+<div class="" *ngIf="selectedRecipeType">
+  <app-recipe-single-cont></app-recipe-single-cont>
 </div>

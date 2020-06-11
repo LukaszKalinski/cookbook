@@ -15,13 +15,15 @@ import { RecipeTypeComponent } from './pages/recipes/recipe-type/recipe-type.com
 import { RecipeSingleComponent } from './pages/recipes/recipe-single/recipe-single.component';
 import { RecipesContComponent } from './pages/recipes/recipes-cont/recipes-cont.component';
 import { AppRoutingModule } from './app-routing.module';
+import { RecipeSingleContComponent } from './pages/recipes/recipe-single-cont/recipe-single-cont.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RecipeTypeComponent,
     RecipeSingleComponent,
-    RecipesContComponent
+    RecipesContComponent,
+    RecipeSingleContComponent
   ],
   imports: [
     BrowserModule,

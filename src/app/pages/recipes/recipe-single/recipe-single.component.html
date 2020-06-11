@@ -1,1 +1,4 @@
-<p>recipe-single works!</p>
+<div class="singlecont" (mouseenter)="onStartHover()" (mouseleave)="onEndHover()">
+  <img [src]="recipe.imgUrls[0]" [@biggerImageOnHover]="isHover">
+  <div class="textcont">{{ recipe.name }}</div>
+</div>

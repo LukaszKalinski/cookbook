@@ -14,6 +14,7 @@ import * as fromApp from '../../../store/app.reducer';
 export class RecipesContComponent implements OnInit, OnDestroy {
   allRecipeTypes: RecipeType[];
   subscription: Subscription;
+  selectedRecipeType: string;
 
   constructor(
     private store: Store<fromApp.AppState>,
@@ -26,6 +27,7 @@ export class RecipesContComponent implements OnInit, OnDestroy {
   subscriptionsOnInit() {
     this.subscription = this.store.select('recipes').subscribe(data => {
       this.allRecipeTypes = data.recipesType;
+      this.selectedRecipeType = data.selectedRecipeType;
     });
   }
 

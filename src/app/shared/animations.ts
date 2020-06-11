@@ -30,6 +30,20 @@ export const Animations = {
         }),
         animate(500)
       ]),
-    ])
+    ]),
+  biggerImageOnHover:
+    trigger('biggerImageOnHover', [
+      state('true', style({
+        filter: 'grayscale(0)',
+        transform: 'scale(1.1)'
+      })),
+      state('false', style({
+        filter: 'grayscale(100%)',
+        transform: 'scale(1)'
+      })),
+      transition('true <=> false', [
+        animate(200)
+      ]),
+    ]),
 };
 

@@ -1,21 +1,21 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { RecipeType } from 'src/app/classes/recipe-type.model';
+import * as fromApp from '../../../store/app.reducer';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-
-
-import * as fromApp from '../../../store/app.reducer';
+import { Animations} from '../../../shared/animations';
 
 @Component({
-  selector: 'app-recipes-cont',
-  templateUrl: './recipes-cont.component.html',
-  styleUrls: ['./recipes-cont.component.sass'],
+  selector: 'app-welcome-cont',
+  templateUrl: './welcome-cont.component.html',
+  styleUrls: ['./welcome-cont.component.sass'],
+  animations: [
+    Animations.setheighttozero
+  ]
 })
 
-export class RecipesContComponent implements OnInit, OnDestroy {
-  allRecipeTypes: RecipeType[];
+export class WelcomeContComponent implements OnInit, OnDestroy {
   subscription: Subscription;
-  selectedRecipeType: string;
+  isSelectedType = false;
 
   constructor(
     private store: Store<fromApp.AppState>,
@@ -27,8 +27,7 @@ export class RecipesContComponent implements OnInit, OnDestroy {
 
   subscriptionsOnInit() {
     this.subscription = this.store.select('recipes').subscribe(data => {
-      this.allRecipeTypes = data.recipesType;
-      this.selectedRecipeType = data.selectedRecipeType;
+      this.isSelectedType = data.selectedRecipeType ? true : false;
     });
   }
 

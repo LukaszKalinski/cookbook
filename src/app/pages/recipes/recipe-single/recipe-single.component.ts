@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RecipeSingle } from 'src/app/classes/recipe-single.model';
 import { Animations} from '../../../shared/animations';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../../store/app.reducer';
+import * as RecipeActions from '../store/recipe.actions';
 
 @Component({
   selector: 'app-recipe-single',
@@ -14,7 +17,9 @@ export class RecipeSingleComponent implements OnInit {
   @Input() recipe: RecipeSingle;
   isHover = false;
 
-  constructor() { }
+  constructor(
+    private store: Store<fromApp.AppState>,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -25,5 +30,9 @@ export class RecipeSingleComponent implements OnInit {
 
   onEndHover() {
     this.isHover = false;
+  }
+
+  onClick(recipe: RecipeSingle) {
+    this.store.dispatch(new RecipeActions.ChangeRecipeSingle(recipe));
   }
 }

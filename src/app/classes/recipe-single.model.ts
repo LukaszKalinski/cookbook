@@ -1,3 +1,6 @@
+import { RecipeVessel } from './recipe-vessel.model';
+import { RecipeNeeds } from './recipe-needs.model';
+
 export class RecipeSingle {
   constructor(
     public name: string,
@@ -7,10 +10,11 @@ export class RecipeSingle {
     public descriptions: string[],
     public portions: number,
     public isVesselCircle: boolean = false,
-    public vessel: {widthOrR: number, lengthOrR: number, height: number},
-    public needs: {name: string, quantity: number, unit: string}[],
+    public vessel: RecipeVessel[],
+    public needs: RecipeNeeds[],
     public publisher: string,
     public publishedDate: number,
     public likes: number,
+    public tags: string[] = null,
   ) {}
 }

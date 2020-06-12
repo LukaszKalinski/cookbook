@@ -41,10 +41,12 @@ export class RecipeTypeComponent implements OnInit {
   }
 
   onClick(recipeType: string) {
+    window.scrollTo(0, 0);
     if (this.selectedRecipeType !== recipeType) {
       this.store.dispatch(new RecipeActions.ChangeRecipeType(recipeType));
     } else {
       this.store.dispatch(new RecipeActions.ChangeRecipeType(null));
+      this.store.dispatch(new RecipeActions.ChangeRecipeSingle(null));
     }
     this.isSelectedType = this.selectedRecipeType === this.recipeType.name ? true : false;
   }

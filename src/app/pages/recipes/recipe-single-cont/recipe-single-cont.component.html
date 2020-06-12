@@ -1,3 +1,12 @@
-<div class="cont" *ngFor="let recipe of typeRecipes">
-  <app-recipe-single [recipe]="recipe"></app-recipe-single>
-</div>
+<ng-container *ngIf="!selectedRecipeSingle">
+  <div class="cont m-0 p-0 mx-auto" *ngFor="let recipe of typeRecipes">
+    <app-recipe-single [recipe]="recipe"></app-recipe-single>
+  </div>
+</ng-container>
+<ng-container *ngIf="selectedRecipeSingle">
+  <div class="row m-0 p-0" [@appearWithOpacity]>
+    <div class="col m-0 p-0">
+      <app-recipe-single-selected></app-recipe-single-selected>
+    </div>
+  </div>
+</ng-container>

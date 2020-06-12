@@ -1,4 +1,4 @@
-<div class="singlecont" (mouseenter)="onStartHover()" (mouseleave)="onEndHover()">
+<div class="singlecont" (mouseenter)="onStartHover()" (mouseleave)="onEndHover()" (click)="onClick(recipe)">
   <img [src]="recipe.imgUrls[0]" [@biggerImageOnHover]="isHover">
   <div class="textcont">{{ recipe.name }}</div>
 </div>

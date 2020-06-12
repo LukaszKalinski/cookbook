@@ -1,13 +1,15 @@
 import * as RecipeActions from './recipe.actions';
 import { RecipeSingle } from 'src/app/classes/recipe-single.model';
 import { RecipeType } from 'src/app/classes/recipe-type.model';
+import { RecipeVessel } from 'src/app/classes/recipe-vessel.model';
 
 export interface State {
   recipesType: RecipeType[];
   recipes: RecipeSingle[];
   editedRecipe: RecipeSingle;
-  editerRecipeIndex: number;
+  editedRecipeIndex: number;
   selectedRecipeType: string;
+  selectedRecipeSingle: RecipeSingle;
 }
 
 const initialState = {
@@ -40,8 +42,12 @@ const initialState = {
         ],
         4,
         false,
-        {widthOrR: 100, lengthOrR: 100, height: 100},
-        [{name: 'Apple', quantity: 5, unit: 'kg'}],
+        [new RecipeVessel(100, 100, 100)],
+        [
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+        ],
         'Me',
         new Date().getTime(),
         1000
@@ -66,16 +72,201 @@ const initialState = {
         ],
         4,
         false,
-        {widthOrR: 100, lengthOrR: 100, height: 100},
-        [{name: 'Apple', quantity: 5, unit: 'kg'}],
+        [new RecipeVessel(100, 100, 100)],
+        [
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+        ],
         'Me',
         new Date().getTime(),
         1000
-      )
+      ),
+      new RecipeSingle(
+        'Brownie z fasoli x2',
+        'First Type',
+        'Accepted',
+        [
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_01.jpg',
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_02.jpg',
+
+        ],
+        [
+          // tslint:disable-next-line: max-line-length
+          'Fasolę odcedzić na sitku i przepłukać wodą, odsączyć. Włożyć do melaksera lub blendera i zacząć miksować z daktylami (bez pestek), kakao, miodem, syropem klonowym oraz proszkiem do pieczenia.',
+          'Dodać jajka i zmiksować na gładką masę, pod koniec dodając olej kokosowy i banany. Dodać posiekane suszone śliwki i wymieszać.',
+          // tslint:disable-next-line: max-line-length
+          'Otrzymaną masę przelać do foremki o wymiarach dna ok. 20 x 23 cm i piec przez ok. 40 minut w 170 stopniach C. Wyjąć z piekarnika i ostudzić.',
+          // tslint:disable-next-line: max-line-length
+          'Ciasto opcjonalnie polać polewą czekoladową: do miseczki włożyć połamaną na kosteczki czekoladę, wlać mleko i roztopić w mikrofali lub kąpieli wodnej, wymieszać do uzyskania gładkiej konsystencji. Polać po cieście i udekorować pokrojonymi daktylami.'
+        ],
+        4,
+        false,
+        [new RecipeVessel(100, 100, 100)],
+        [
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+        ],
+        'Me',
+        new Date().getTime(),
+        1000
+      ),
+      new RecipeSingle(
+        'Brownie z fasoli x2',
+        'First Type',
+        'Accepted',
+        [
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_01.jpg',
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_02.jpg',
+
+        ],
+        [
+          // tslint:disable-next-line: max-line-length
+          'Fasolę odcedzić na sitku i przepłukać wodą, odsączyć. Włożyć do melaksera lub blendera i zacząć miksować z daktylami (bez pestek), kakao, miodem, syropem klonowym oraz proszkiem do pieczenia.',
+          'Dodać jajka i zmiksować na gładką masę, pod koniec dodając olej kokosowy i banany. Dodać posiekane suszone śliwki i wymieszać.',
+          // tslint:disable-next-line: max-line-length
+          'Otrzymaną masę przelać do foremki o wymiarach dna ok. 20 x 23 cm i piec przez ok. 40 minut w 170 stopniach C. Wyjąć z piekarnika i ostudzić.',
+          // tslint:disable-next-line: max-line-length
+          'Ciasto opcjonalnie polać polewą czekoladową: do miseczki włożyć połamaną na kosteczki czekoladę, wlać mleko i roztopić w mikrofali lub kąpieli wodnej, wymieszać do uzyskania gładkiej konsystencji. Polać po cieście i udekorować pokrojonymi daktylami.'
+        ],
+        4,
+        false,
+        [new RecipeVessel(100, 100, 100)],
+        [
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+        ],
+        'Me',
+        new Date().getTime(),
+        1000
+      ),
+      new RecipeSingle(
+        'Brownie z fasoli x2',
+        'First Type',
+        'Accepted',
+        [
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_01.jpg',
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_02.jpg',
+
+        ],
+        [
+          // tslint:disable-next-line: max-line-length
+          'Fasolę odcedzić na sitku i przepłukać wodą, odsączyć. Włożyć do melaksera lub blendera i zacząć miksować z daktylami (bez pestek), kakao, miodem, syropem klonowym oraz proszkiem do pieczenia.',
+          'Dodać jajka i zmiksować na gładką masę, pod koniec dodając olej kokosowy i banany. Dodać posiekane suszone śliwki i wymieszać.',
+          // tslint:disable-next-line: max-line-length
+          'Otrzymaną masę przelać do foremki o wymiarach dna ok. 20 x 23 cm i piec przez ok. 40 minut w 170 stopniach C. Wyjąć z piekarnika i ostudzić.',
+          // tslint:disable-next-line: max-line-length
+          'Ciasto opcjonalnie polać polewą czekoladową: do miseczki włożyć połamaną na kosteczki czekoladę, wlać mleko i roztopić w mikrofali lub kąpieli wodnej, wymieszać do uzyskania gładkiej konsystencji. Polać po cieście i udekorować pokrojonymi daktylami.'
+        ],
+        4,
+        false,
+        [new RecipeVessel(100, 100, 100)],
+        [
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+        ],
+        'Me',
+        new Date().getTime(),
+        1000
+      ),
+      new RecipeSingle(
+        'Brownie z fasoli x2',
+        'First Type',
+        'Accepted',
+        [
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_01.jpg',
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_02.jpg',
+
+        ],
+        [
+          // tslint:disable-next-line: max-line-length
+          'Fasolę odcedzić na sitku i przepłukać wodą, odsączyć. Włożyć do melaksera lub blendera i zacząć miksować z daktylami (bez pestek), kakao, miodem, syropem klonowym oraz proszkiem do pieczenia.',
+          'Dodać jajka i zmiksować na gładką masę, pod koniec dodając olej kokosowy i banany. Dodać posiekane suszone śliwki i wymieszać.',
+          // tslint:disable-next-line: max-line-length
+          'Otrzymaną masę przelać do foremki o wymiarach dna ok. 20 x 23 cm i piec przez ok. 40 minut w 170 stopniach C. Wyjąć z piekarnika i ostudzić.',
+          // tslint:disable-next-line: max-line-length
+          'Ciasto opcjonalnie polać polewą czekoladową: do miseczki włożyć połamaną na kosteczki czekoladę, wlać mleko i roztopić w mikrofali lub kąpieli wodnej, wymieszać do uzyskania gładkiej konsystencji. Polać po cieście i udekorować pokrojonymi daktylami.'
+        ],
+        4,
+        false,
+        [new RecipeVessel(100, 100, 100)],
+        [
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+        ],
+        'Me',
+        new Date().getTime(),
+        1000
+      ),
+      new RecipeSingle(
+        'Brownie z fasoli x2',
+        'First Type',
+        'Accepted',
+        [
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_01.jpg',
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_02.jpg',
+
+        ],
+        [
+          // tslint:disable-next-line: max-line-length
+          'Fasolę odcedzić na sitku i przepłukać wodą, odsączyć. Włożyć do melaksera lub blendera i zacząć miksować z daktylami (bez pestek), kakao, miodem, syropem klonowym oraz proszkiem do pieczenia.',
+          'Dodać jajka i zmiksować na gładką masę, pod koniec dodając olej kokosowy i banany. Dodać posiekane suszone śliwki i wymieszać.',
+          // tslint:disable-next-line: max-line-length
+          'Otrzymaną masę przelać do foremki o wymiarach dna ok. 20 x 23 cm i piec przez ok. 40 minut w 170 stopniach C. Wyjąć z piekarnika i ostudzić.',
+          // tslint:disable-next-line: max-line-length
+          'Ciasto opcjonalnie polać polewą czekoladową: do miseczki włożyć połamaną na kosteczki czekoladę, wlać mleko i roztopić w mikrofali lub kąpieli wodnej, wymieszać do uzyskania gładkiej konsystencji. Polać po cieście i udekorować pokrojonymi daktylami.'
+        ],
+        4,
+        false,
+        [new RecipeVessel(100, 100, 100)],
+        [
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+        ],
+        'Me',
+        new Date().getTime(),
+        1000
+      ),
+      new RecipeSingle(
+        'Brownie z fasoli x2',
+        'First Type',
+        'Accepted',
+        [
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_01.jpg',
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_02.jpg',
+
+        ],
+        [
+          // tslint:disable-next-line: max-line-length
+          'Fasolę odcedzić na sitku i przepłukać wodą, odsączyć. Włożyć do melaksera lub blendera i zacząć miksować z daktylami (bez pestek), kakao, miodem, syropem klonowym oraz proszkiem do pieczenia.',
+          'Dodać jajka i zmiksować na gładką masę, pod koniec dodając olej kokosowy i banany. Dodać posiekane suszone śliwki i wymieszać.',
+          // tslint:disable-next-line: max-line-length
+          'Otrzymaną masę przelać do foremki o wymiarach dna ok. 20 x 23 cm i piec przez ok. 40 minut w 170 stopniach C. Wyjąć z piekarnika i ostudzić.',
+          // tslint:disable-next-line: max-line-length
+          'Ciasto opcjonalnie polać polewą czekoladową: do miseczki włożyć połamaną na kosteczki czekoladę, wlać mleko i roztopić w mikrofali lub kąpieli wodnej, wymieszać do uzyskania gładkiej konsystencji. Polać po cieście i udekorować pokrojonymi daktylami.'
+        ],
+        4,
+        false,
+        [new RecipeVessel(100, 100, 100)],
+        [
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+          {name: 'Apple', quantity: 5, unit: 'kg'},
+        ],
+        'Me',
+        new Date().getTime(),
+        1000
+      ),
     ],
   editedRecipe: null,
-  editerRecipeIndex: -1,
-  selectedRecipeType: null
+  editedRecipeIndex: -1,
+  selectedRecipeType: null,
+  selectedRecipeSingle: null
 };
 
 export function recipeReducer(state: State = initialState, action: RecipeActions.RecipeActions) {
@@ -88,6 +279,10 @@ export function recipeReducer(state: State = initialState, action: RecipeActions
       return {
         ...state,
         selectedRecipeType: action.payload};
+    case 'CHANGE_RECIPESINGLE':
+      return {
+        ...state,
+        selectedRecipeSingle: action.payload};
     default:
       return state;
   }

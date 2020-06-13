@@ -104,7 +104,7 @@ export const Animations = {
     ]),
   setheighttozero:
     trigger('setheighttozero', [
-      state('true', style({
+      state('false', style({
         height: '100vh'
       })),
       state('true', style({
@@ -112,6 +112,18 @@ export const Animations = {
       })),
       transition('true <=> false', [
         animate(1000)
+      ]),
+    ]),
+  footerheight:
+    trigger('footerheight', [
+      state('true', style({
+        height: '200px',
+      })),
+      state('false', style({
+        height: '50px'
+      })),
+      transition('* => true', [
+        animate(500)
       ]),
     ]),
 };

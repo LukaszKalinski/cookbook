@@ -19,8 +19,6 @@ export class HeaderBarComponent implements OnInit {
 
   onScroll() {
     this.isWindowScrolled = window.scrollY > 0 ? true : false;
-    console.log(this.isWindowScrolled);
-    console.log(window.scrollY);
   }
 
 }

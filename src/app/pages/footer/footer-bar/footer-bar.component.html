@@ -1,0 +1,6 @@
+<div class="footersmall">FOOTERsmall</div>
+<div class="footerbig" *ngIf="isWindowScrolledBottom" [@footerheight]="isWindowScrolledBottom">
+  FOOTERbig<br>FOOTERbig<br>FOOTERbig<br>FOOTERbig<br>FOOTERbig<br>FOOTERbig<br>
+</div>
+
+<div (window:scroll)="onScroll()"></div>

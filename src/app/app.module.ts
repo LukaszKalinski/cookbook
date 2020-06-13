@@ -22,6 +22,11 @@ import { IconComponent } from './shared/icon/icon.component';
 import { StringsService } from './shared/strings';
 import { HeaderBarComponent } from './pages/header/header-bar/header-bar.component';
 import { WelcomeContComponent } from './pages/welcome/welcome-cont/welcome-cont.component';
+import { FooterBarComponent } from './pages/footer/footer-bar/footer-bar.component';
+import { MenuLogoComponent } from './pages/header/menu-logo/menu-logo.component';
+import { MenuHorizontalComponent } from './pages/header/menu-horizontal/menu-horizontal.component';
+import { SearchboxComponent } from './pages/header/searchbox/searchbox.component';
+import { MenuFullpageComponent } from './pages/header/menu-fullpage/menu-fullpage.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,12 @@ import { WelcomeContComponent } from './pages/welcome/welcome-cont/welcome-cont.
     RecipeSingleSelectedComponent,
     IconComponent,
     HeaderBarComponent,
-    WelcomeContComponent
+    WelcomeContComponent,
+    FooterBarComponent,
+    MenuLogoComponent,
+    MenuHorizontalComponent,
+    SearchboxComponent,
+    MenuFullpageComponent
   ],
   imports: [
     BrowserModule,

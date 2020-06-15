@@ -126,5 +126,21 @@ export const Animations = {
         animate(500)
       ]),
     ]),
+    triggerMenu:
+    trigger('triggerMenu', [
+      state('in', style({
+        opacity: 1,
+        height: '100%',
+        width: '100%',
+      })),
+      transition('void => *', [
+        style({
+          opacity: 0.5,
+          height: '0%',
+          width: '0%'
+        }),
+        animate(500)
+      ]),
+    ]),
 };
 

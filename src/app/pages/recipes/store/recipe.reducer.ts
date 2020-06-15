@@ -12,7 +12,7 @@ export interface State {
   selectedRecipeSingle: RecipeSingle;
 }
 
-const initialState = {
+const initialState: State = {
   recipesType:
     [
       // tslint:disable-next-line: max-line-length

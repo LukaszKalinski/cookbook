@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Animations} from '../../../shared/animations';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../../store/app.reducer';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header-bar',
@@ -9,16 +12,38 @@ import { Animations} from '../../../shared/animations';
     Animations.headerscrolling,
   ]
 })
-export class HeaderBarComponent implements OnInit {
+export class HeaderBarComponent implements OnInit, OnDestroy {
   isWindowScrolled = false;
+  isMenuTriggered = false;
+  subscription: Subscription;
 
-  constructor() { }
+  constructor(
+    private store: Store<fromApp.AppState>,
+  ) { }
 
   ngOnInit(): void {
+    this.subscriptionsOnInit();
+  }
+
+  subscriptionsOnInit() {
+    this.subscription = this.store.select('header').subscribe(data => {
+      this.isMenuTriggered = data.isMenuTriggered;
+      if (data.isMenuTriggered) {
+        this.isWindowScrolled = true;
+      } else {
+        this.onScroll();
+      }
+    });
   }
 
   onScroll() {
-    this.isWindowScrolled = window.scrollY > 0 ? true : false;
+    if (!this.isMenuTriggered) {
+      this.isWindowScrolled = window.scrollY > 0 ? true : false;
+    }
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

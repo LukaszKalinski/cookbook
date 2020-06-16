@@ -1,4 +1,4 @@
-import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { trigger, state, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 
 export const Animations = {
   titlesWhiteToBlack:
@@ -87,14 +87,10 @@ export const Animations = {
   headerscrolling:
     trigger('headerscrolling', [
       state('false', style({
-        color: 'white',
-        height: '100px',
-        backgroundColor: 'black',
-        'border-bottom': '1px solid black'
+        backgroundColor: 'transparent',
+        'border-bottom': '1px solid transparent'
       })),
       state('true', style({
-        color: 'black',
-        height: '50px',
         backgroundColor: 'white',
         'border-bottom': '1px solid black'
       })),
@@ -114,6 +110,18 @@ export const Animations = {
         animate(1000)
       ]),
     ]),
+  setwidthtozero:
+    trigger('setwidthtozero', [
+      transition('void => *', [
+        style({
+          width: 0
+        }),
+        animate(1000)
+      ]),
+      transition('* => void', [
+        animate(1000, style({width: '0%'}))
+      ]),
+    ]),
   footerheight:
     trigger('footerheight', [
       state('true', style({
@@ -126,12 +134,17 @@ export const Animations = {
         animate(500)
       ]),
     ]),
-    triggerMenu:
+  triggerMenu:
     trigger('triggerMenu', [
-      state('in', style({
+      state('true', style({
         opacity: 1,
         height: '100%',
         width: '100%',
+      })),
+      state('false', style({
+        opacity: 0,
+        height: '0%',
+        width: '0%',
       })),
       transition('void => *', [
         style({
@@ -140,6 +153,21 @@ export const Animations = {
           width: '0%'
         }),
         animate(500)
+      ]),
+      transition('* => *', [
+        animate(500)
+      ]),
+    ]),
+  entermenu:
+    trigger('entermenu', [
+      transition('* => *', [
+        query(':enter', style({ opacity: 0 }), { optional: true }),
+        query(':enter', stagger(800, [
+          animate('0.5s ease-in', keyframes([
+            style({ opacity: 1, transform: 'translateX(-50%) scale(0.8)', offset: 0, color: 'gold' }),
+            style({ opacity: 1, transform: 'translateX(-10px) scale(0.9)', offset: 0.3, color: 'gold' }),
+            style({ opacity: 1, transform: 'translateX(0)', offset: 1, color: 'black' }),
+          ]))]), { optional: true }),
       ]),
     ]),
 };

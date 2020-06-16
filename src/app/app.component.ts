@@ -2,11 +2,15 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromApp from './store/app.reducer';
 import { Subscription } from 'rxjs';
+import { Animations} from '../app/shared/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.sass'],
+  animations: [
+    Animations.triggerMenu,
+  ]
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'cookbook';

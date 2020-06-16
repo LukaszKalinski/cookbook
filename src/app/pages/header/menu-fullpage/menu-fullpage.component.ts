@@ -10,11 +10,14 @@ import * as fromApp from '../../../store/app.reducer';
   styleUrls: ['./menu-fullpage.component.sass'],
   animations: [
     Animations.triggerMenu,
+    Animations.entermenu
   ]
 })
 export class MenuFullpageComponent implements OnInit, OnDestroy {
   isMenuTriggered = false;
+  isLoaded = false;
   subscription: Subscription;
+  menu: {name: string, url: string}[] = [];
 
   constructor(
     private store: Store<fromApp.AppState>,
@@ -27,7 +30,21 @@ export class MenuFullpageComponent implements OnInit, OnDestroy {
   subscriptionsOnInit() {
     this.subscription = this.store.select('header').subscribe(data => {
       this.isMenuTriggered = data.isMenuTriggered;
+      if (this.isMenuTriggered) {
+        setTimeout(() => {
+          this.isLoaded = true;
+        }, 1000);
+      } else {
+        this.isLoaded = false;
+      }
     });
+    this.setMenu();
+  }
+
+  setMenu() {
+    for (let i = 0; i < 10; i++) {
+      this.menu.push({name: 'Something', url: 'some'});
+    }
   }
 
   ngOnDestroy() {

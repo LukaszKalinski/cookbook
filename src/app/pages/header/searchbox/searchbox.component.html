@@ -1,1 +1,6 @@
-<p>searchbox works!</p>
+<div class="cont">
+  <div class="searchinputcont my-auto" style="text-align: right;">
+    <input class="searchinput my-auto" *ngIf="isSearchBoxTriggered" [(ngModel)]="searchBoxValue" [@setwidthtozero]="!isSearchBoxTriggered">
+  </div>
+  <fa-icon class="searchicon my-auto" (click)="onTriggerSearchBox()" [icon]="searchIcon" size="2x"></fa-icon>
+</div>

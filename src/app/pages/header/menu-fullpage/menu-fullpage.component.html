@@ -1,3 +1,9 @@
 <div class="background" [@triggerMenu]="isMenuTriggered">
-  <div class="menucont">MENU</div>
+  <div class="menucont">
+    <div *ngIf="isLoaded" [@entermenu]="menu.length">
+      <div *ngFor="let item of menu">
+        name: {{item.name}}, url: {{item.url}}
+      </div>
+    </div>
+  </div>
 </div>

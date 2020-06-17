@@ -27,6 +27,11 @@ import { MenuLogoComponent } from './pages/header/menu-logo/menu-logo.component'
 import { MenuHorizontalComponent } from './pages/header/menu-horizontal/menu-horizontal.component';
 import { SearchboxComponent } from './pages/header/searchbox/searchbox.component';
 import { MenuFullpageComponent } from './pages/header/menu-fullpage/menu-fullpage.component';
+import { MenuItemComponent } from './pages/header/menu-fullpage/menu-item/menu-item.component';
+import { UserPageComponent } from './pages/user-page/user-page.component';
+import { LoginPageComponent } from './pages/user-page/login-page/login-page.component';
+import { UserRecipesComponent } from './pages/user-page/user-recipes/user-recipes.component';
+import { EditRecipeComponent } from './pages/user-page/edit-recipe/edit-recipe.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import { MenuFullpageComponent } from './pages/header/menu-fullpage/menu-fullpag
     MenuLogoComponent,
     MenuHorizontalComponent,
     SearchboxComponent,
-    MenuFullpageComponent
+    MenuFullpageComponent,
+    MenuItemComponent,
+    UserPageComponent,
+    LoginPageComponent,
+    UserRecipesComponent,
+    EditRecipeComponent
   ],
   imports: [
     BrowserModule,

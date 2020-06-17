@@ -8,6 +8,11 @@
     <app-welcome-cont></app-welcome-cont>
   </div>
 </div>
+<div class="row m-0 p-0" *ngIf="isLogged">
+  <div class="col m-0 p-0">
+    <app-user-page></app-user-page>
+  </div>
+</div>
 <div class="row m-0 p-0">
   <div class="col m-0 p-0">
     <app-recipes-cont></app-recipes-cont>

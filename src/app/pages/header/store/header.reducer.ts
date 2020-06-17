@@ -2,10 +2,17 @@ import * as HeaderActions from './header.actions';
 
 export interface State {
   isMenuTriggered: boolean;
+  menu: {name: string, url: string}[];
 }
 
 const initialState: State = {
   isMenuTriggered: false,
+  menu: [
+    {name: 'All Recipes', url: '#recipes'},
+    {name: 'User', url: '#user'},
+    {name: 'All Recipes', url: '#recipes'},
+    {name: 'All Recipes', url: '#recipes'},
+  ],
 };
 
 export function headerReducer(state: State = initialState, action: HeaderActions.HeaderActions) {

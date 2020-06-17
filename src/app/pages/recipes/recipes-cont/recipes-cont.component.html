@@ -1,3 +1,4 @@
+<a name="recipes"></a>
 <div class="cont"  *ngFor="let type of allRecipeTypes">
   <ng-container *ngIf="(!selectedRecipeType || selectedRecipeType === type.name)">
     <app-recipe-type [recipeType]="type"></app-recipe-type>

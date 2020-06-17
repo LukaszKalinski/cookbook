@@ -15,7 +15,9 @@ import { Animations} from '../app/shared/animations';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'cookbook';
   isMenuTriggered = false;
+  isLogged = false;
   subscription: Subscription;
+  subscriptionTwo: Subscription;
 
   constructor(
     private store: Store<fromApp.AppState>,
@@ -25,9 +27,13 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscription = this.store.select('header').subscribe(data => {
       this.isMenuTriggered = data.isMenuTriggered;
     });
+    this.subscriptionTwo = this.store.select('user').subscribe(data => {
+      this.isLogged = data.isLogged;
+    });
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.subscriptionTwo.unsubscribe();
   }
 }

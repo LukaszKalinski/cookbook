@@ -1,8 +1,8 @@
 <div class="background" [@triggerMenu]="isMenuTriggered">
-  <div class="menucont">
-    <div *ngIf="isLoaded" [@entermenu]="menu.length">
+  <div class="menucont my-auto mx-auto">
+    <div *ngIf="isLoaded" [@entermenu]="menu.length" class="my-auto mx-auto">
       <div *ngFor="let item of menu">
-        name: {{item.name}}, url: {{item.url}}
+        <app-menu-item [menu]="item"></app-menu-item>
       </div>
     </div>
   </div>

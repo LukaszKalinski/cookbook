@@ -18,7 +18,15 @@ const initialState: State = {
       // tslint:disable-next-line: max-line-length
       new RecipeType('First Type', 'Short description', 'https://i.pinimg.com/600x315/8a/e4/cb/8ae4cb19758c97b685ad10a30a5c8ca4.jpg'),
       // tslint:disable-next-line: max-line-length
-      new RecipeType('Second Type', 'Short description', 'https://i.pinimg.com/600x315/8a/e4/cb/8ae4cb19758c97b685ad10a30a5c8ca4.jpg')
+      new RecipeType('Second Type', 'Short description', 'https://i.pinimg.com/600x315/8a/e4/cb/8ae4cb19758c97b685ad10a30a5c8ca4.jpg'),
+      // tslint:disable-next-line: max-line-length
+      new RecipeType('Third Type', 'Short description', 'https://i.pinimg.com/600x315/8a/e4/cb/8ae4cb19758c97b685ad10a30a5c8ca4.jpg'),
+      // tslint:disable-next-line: max-line-length
+      new RecipeType('Fourth Type', 'Short description', 'https://i.pinimg.com/600x315/8a/e4/cb/8ae4cb19758c97b685ad10a30a5c8ca4.jpg'),
+      // tslint:disable-next-line: max-line-length
+      new RecipeType('Fifth Type', 'Short description', 'https://i.pinimg.com/600x315/8a/e4/cb/8ae4cb19758c97b685ad10a30a5c8ca4.jpg'),
+      // tslint:disable-next-line: max-line-length
+      new RecipeType('Sixth Type', 'Short description', 'https://i.pinimg.com/600x315/8a/e4/cb/8ae4cb19758c97b685ad10a30a5c8ca4.jpg'),
     ],
   recipes:
     [

@@ -17,7 +17,7 @@ export class MenuFullpageComponent implements OnInit, OnDestroy {
   isMenuTriggered = false;
   isLoaded = false;
   subscription: Subscription;
-  menu: {name: string, url: string}[] = [];
+  menu: {name: string, url: string}[];
 
   constructor(
     private store: Store<fromApp.AppState>,
@@ -30,6 +30,7 @@ export class MenuFullpageComponent implements OnInit, OnDestroy {
   subscriptionsOnInit() {
     this.subscription = this.store.select('header').subscribe(data => {
       this.isMenuTriggered = data.isMenuTriggered;
+      this.menu = data.menu;
       if (this.isMenuTriggered) {
         setTimeout(() => {
           this.isLoaded = true;
@@ -38,13 +39,6 @@ export class MenuFullpageComponent implements OnInit, OnDestroy {
         this.isLoaded = false;
       }
     });
-    this.setMenu();
-  }
-
-  setMenu() {
-    for (let i = 0; i < 10; i++) {
-      this.menu.push({name: 'Something', url: 'some'});
-    }
   }
 
   ngOnDestroy() {

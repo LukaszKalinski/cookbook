@@ -126,11 +126,12 @@ export const Animations = {
     trigger('footerheight', [
       state('true', style({
         height: '200px',
+        background: 'rgb(220,220,220)'
       })),
       state('false', style({
         height: '50px'
       })),
-      transition('* => true', [
+      transition('* <=> *', [
         animate(500)
       ]),
     ]),
@@ -162,11 +163,23 @@ export const Animations = {
     trigger('entermenu', [
       transition('* => *', [
         query(':enter', style({ opacity: 0 }), { optional: true }),
-        query(':enter', stagger(800, [
+        query(':enter', stagger(400, [
           animate('0.5s ease-in', keyframes([
             style({ opacity: 1, transform: 'translateX(-50%) scale(0.8)', offset: 0, color: 'gold' }),
             style({ opacity: 1, transform: 'translateX(-10px) scale(0.9)', offset: 0.3, color: 'gold' }),
             style({ opacity: 1, transform: 'translateX(0)', offset: 1, color: 'black' }),
+          ]))]), { optional: true }),
+      ]),
+    ]),
+  enterIconsRow:
+    trigger('enterIconsRow', [
+      transition('* => *', [
+        query(':enter', style({ opacity: 0 }), { optional: true }),
+        query(':enter', stagger('300ms', [
+          animate('.5s ease-in', keyframes([
+            style({ opacity: 0, transform: 'translateX(-200px)', offset: 0 }),
+            style({ opacity: .5, transform: 'translateX(-40px) scale(1.1)', offset: 0.3 }),
+            style({ opacity: 1, transform: 'translateX(0)', offset: 1 }),
           ]))]), { optional: true }),
       ]),
     ]),

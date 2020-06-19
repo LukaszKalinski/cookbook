@@ -34,7 +34,7 @@ export class MenuFullpageComponent implements OnInit, OnDestroy {
       if (this.isMenuTriggered) {
         setTimeout(() => {
           this.isLoaded = true;
-        }, 1000);
+        }, 800);
       } else {
         this.isLoaded = false;
       }

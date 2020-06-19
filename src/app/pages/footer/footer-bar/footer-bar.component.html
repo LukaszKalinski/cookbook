@@ -1,5 +1,16 @@
 <div class="footer" [@footerheight]="isWindowScrolledBottom">
-  FOOTERbig<br>FOOTERbig<br>FOOTERbig<br>FOOTERbig<br>FOOTERbig<br>FOOTERbig<br>
+  <div class="smallcont">
+    <div class="text-center" [@enterIconsRow]="iconMenu.length">
+      <ng-container *ngFor="let icon of iconMenu">
+        <div style="display: inline-block">
+          <app-icon [icon]="icon.icon" [hintMessage]="icon.url"></app-icon>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="biggercont">
+    Created by Lukasz Kalinski
+  </div>
 </div>
 
 <div (window:scroll)="onScroll()"></div>

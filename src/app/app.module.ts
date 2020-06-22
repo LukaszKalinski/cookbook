@@ -32,6 +32,7 @@ import { UserPageComponent } from './pages/user-page/user-page.component';
 import { LoginPageComponent } from './pages/user-page/login-page/login-page.component';
 import { UserRecipesComponent } from './pages/user-page/user-recipes/user-recipes.component';
 import { EditRecipeComponent } from './pages/user-page/edit-recipe/edit-recipe.component';
+import { CarouselComponent } from './shared/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { EditRecipeComponent } from './pages/user-page/edit-recipe/edit-recipe.c
     UserPageComponent,
     LoginPageComponent,
     UserRecipesComponent,
-    EditRecipeComponent
+    EditRecipeComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,

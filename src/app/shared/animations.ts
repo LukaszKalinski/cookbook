@@ -132,7 +132,7 @@ export const Animations = {
         height: '50px'
       })),
       transition('* <=> *', [
-        animate(500)
+        animate(300)
       ]),
     ]),
   triggerMenu:
@@ -161,7 +161,7 @@ export const Animations = {
     ]),
   entermenu:
     trigger('entermenu', [
-      transition('* => *', [
+      transition('void => *', [
         query(':enter', style({ opacity: 0 }), { optional: true }),
         query(':enter', stagger(400, [
           animate('0.5s ease-in', keyframes([
@@ -175,7 +175,7 @@ export const Animations = {
     trigger('enterIconsRow', [
       transition('* => *', [
         query(':enter', style({ opacity: 0 }), { optional: true }),
-        query(':enter', stagger('300ms', [
+        query(':enter', stagger(300, [
           animate('.5s ease-in', keyframes([
             style({ opacity: 0, transform: 'translateX(-200px)', offset: 0 }),
             style({ opacity: .5, transform: 'translateX(-40px) scale(1.1)', offset: 0.3 }),

@@ -1,4 +1,4 @@
-import { trigger, state, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
+import { trigger, state, style, transition, animate, keyframes, query, stagger, group } from '@angular/animations';
 
 export const Animations = {
   titlesWhiteToBlack:
@@ -182,6 +182,18 @@ export const Animations = {
             style({ opacity: 1, transform: 'translateX(0)', offset: 1 }),
           ]))]), { optional: true }),
       ]),
+    ]),
+  carousel:
+    trigger('carousel', [
+      transition(':increment', group([
+        style({transform: 'translateX(298px)'}),
+        animate(500, style({transform: 'translateX(0)'}))
+      ])),
+      transition(':decrement', group([
+        query(':leave', style({ opacity: 0 }), { optional: true }),
+        style({transform: 'translateX(-298px)'}),
+        animate(500, style({transform: 'translateX(0px)'}))
+      ])),
     ]),
 };
 

@@ -65,8 +65,8 @@ const initialState: State = {
         'First Type',
         'Accepted',
         [
-          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_01.jpg',
           'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_02.jpg',
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_01.jpg',
 
         ],
         [
@@ -125,8 +125,8 @@ const initialState: State = {
         'First Type',
         'Accepted',
         [
-          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_01.jpg',
           'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_02.jpg',
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_01.jpg',
 
         ],
         [
@@ -185,8 +185,8 @@ const initialState: State = {
         'First Type',
         'Accepted',
         [
-          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_01.jpg',
           'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_02.jpg',
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_01.jpg',
 
         ],
         [
@@ -245,8 +245,8 @@ const initialState: State = {
         'First Type',
         'Accepted',
         [
-          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_01.jpg',
           'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_02.jpg',
+          'https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/brownie_z_fasoli_01.jpg',
 
         ],
         [

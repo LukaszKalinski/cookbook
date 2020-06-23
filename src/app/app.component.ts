@@ -18,6 +18,8 @@ export class AppComponent implements OnInit, OnDestroy {
   isLogged = false;
   subscription: Subscription;
   subscriptionTwo: Subscription;
+  subscriptionThree: Subscription;
+  selectedRecipeType: string;
 
   constructor(
     private store: Store<fromApp.AppState>,
@@ -30,10 +32,14 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscriptionTwo = this.store.select('user').subscribe(data => {
       this.isLogged = data.isLogged;
     });
+    this.subscriptionThree = this.store.select('recipes').subscribe(data => {
+      this.selectedRecipeType = data.selectedRecipeType;
+    });
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
     this.subscriptionTwo.unsubscribe();
+    this.subscriptionThree.unsubscribe();
   }
 }

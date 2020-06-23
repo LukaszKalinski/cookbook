@@ -8,14 +8,21 @@
     <app-welcome-cont></app-welcome-cont>
   </div>
 </div>
-<div class="row m-0 p-0" *ngIf="isLogged">
+<div class="row m-0 p-0" *ngIf="isLogged && !selectedRecipeType">
+  <a name="user"></a>
   <div class="col m-0 p-0">
+    <div class="title m-0 p-0">
+      <h1>User</h1>
+    </div>
     <app-user-page></app-user-page>
   </div>
 </div>
-<a name="recipes"></a>
 <div class="row m-0 p-0">
+  <a name="recipes"></a>
   <div class="col m-0 p-0">
+    <div class="title m-0 p-0">
+      <h1>All Recipes</h1>
+    </div>
     <app-recipes-cont></app-recipes-cont>
   </div>
 </div>

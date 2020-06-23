@@ -10,8 +10,6 @@ const initialState: State = {
   menu: [
     {name: 'All Recipes', url: '#recipes'},
     {name: 'User', url: '#user'},
-    {name: 'All Recipes', url: '#recipes'},
-    {name: 'All Recipes', url: '#recipes'},
   ],
 };
 

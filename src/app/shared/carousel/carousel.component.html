@@ -1,1 +1,25 @@
-<p>carousel works!</p>
+<div class="cont text-center" >
+  <div class="contitem" [@carousel]="selectedIndex">
+    <app-recipe-single [recipe]="arr[leftIndex]" *ngIf="leftIndex !== null"></app-recipe-single>
+  </div>
+  <div class="contitem" [@carousel]="selectedIndex">
+    <app-recipe-single [recipe]="arr[selectedIndex]"></app-recipe-single>
+  </div>
+  <div class="contitem" [@carousel]="selectedIndex">
+    <app-recipe-single [recipe]="arr[rightIndex]" *ngIf="rightIndex !== null"></app-recipe-single>
+  </div>
+</div>
+
+<div class="row m-0 p-0 text-center">
+  <div class="col m-0 p-0 mx-auto my-auto">
+    <fa-icon [icon]="leftIcon" (click)="moveCarousel('left')" size="3x" style="color: black"></fa-icon>
+  </div>
+  <div class="col-10 m-0 p-0 mx-auto my-auto">
+    <ng-container *ngFor="let item of arr; let i = index">
+      <fa-icon [icon]="circleIcon" (click)="selectRecipe(i)" size="sm" [ngStyle]="{'color': (i === selectedIndex ? 'gold' : 'black')}"></fa-icon>
+    </ng-container>
+  </div>
+  <div class="col m-0 p-0 mx-auto my-auto">
+    <fa-icon [icon]="rightIcon" (click)="moveCarousel('right')" size="3x" style="color: black"></fa-icon>
+  </div>
+</div>

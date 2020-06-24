@@ -1,1 +1,104 @@
-<p>edit-recipe works!</p>
+<div>
+  <div class="row m-0 p-0">
+    <div class="col m-0 p-0">
+      <img class="mainimg" [src]="recipe.imgUrls[0]">
+    </div>
+    <div class="col m- p-0">
+      <h1>{{ recipe.name }}</h1>
+      <div class="ingiconcont">
+        <div class="ingicon">
+          <app-icon [icon]="calculatorIcon" [hintMessage]="recipeCalcPortionsMsg"></app-icon>
+        </div>
+        <div class="ingicon">
+          <app-icon [icon]="moldIcon" [hintMessage]="recipeCalcVesselMsg"></app-icon>
+        </div>
+        <div class="ingicon" *ngIf="!isShoppingListOpened">
+          <app-icon [icon]="shoppingCartIcon" [hintMessage]="recipeCalcOpenSLMsg"></app-icon>
+        </div>
+        <div class="ingicon"  *ngIf="isShoppingListOpened">
+          <app-icon [icon]="saveShoppingListIcon" [hintMessage]="recipeCalcSendToCartMsg"></app-icon>
+        </div>
+      </div>
+      <div class="row m-0 p-1">
+        <div class="col m-0 p-0">
+          <div class="ingredientsheader">
+            <div>
+              <b>{{ ingredientsName | uppercase}}</b> /
+              <span *ngIf="!isRecalculate">{{ recipe.portions }}</span>
+              <input min="1" type="number" style="width: 50px" ngModel [(ngModel)]="recalculatingFactorPortions" *ngIf="isRecalculate">  {{ portionsName }} / 1 pc
+            </div>
+          </div>
+          <ng-container *ngFor="let ingredient of recipe.needs">
+            <div class="ingredients m-0 ml-1 mr-1 p-0 pl-1">
+              {{ (isRecalculate? ingredient.quantity / recipe.portions * recalculatingFactorPortions : (isManageByShape ? ingredient.quantity * recalculatingFactorShape : ingredient.quantity)).toFixed(2) }} {{ ingredient.unit }} - {{ ingredient.name }}
+              <hr>
+            </div>
+          </ng-container>
+        </div>
+        <ng-container *ngIf="isShoppingListOpened && recalculatedNeedsString.length > 0" >
+          <div class="col m-0 p-0" [@appearWithOpacity]>
+            <div class="ingredientsheader">
+              <div class="">{{ shoppingListName }}</div>
+            </div>
+            <ng-container *ngFor="let item of recalculatedNeedsString; let i = index">
+              <div class="shoppinglist m-0 ml-1 mr-1 p-0 pl-1">
+                <span *ngIf="i !== ingredientEditIndex">{{ item }} <fa-icon class="iconsmall" [icon]="editIcon" size="sm"></fa-icon></span>
+                <span *ngIf="i === ingredientEditIndex"><input #slinput [value]="item"><fa-icon class="iconsmall" [icon]="saveIcon" size="sm"></fa-icon></span>
+                <fa-icon class="iconsmall" [icon]="deleteIcon" size="sm" ></fa-icon>
+                <hr>
+              </div>
+            </ng-container>
+          </div>
+        </ng-container>
+      </div>
+      <div class="row m-0 p-0" *ngIf="isManageByShape" [@appearWithOpacity]>
+        <div class="col m-0 p-0">
+          <div class="vesselcalcheader">
+            {{ recipeCalcVesselHeader }}
+          </div>
+          <div class="vesselcont">
+            <div class="row m-0 p-0">
+              <div class="col m-0 p-0">
+                <div class="">
+                  {{ recipeVessel }}
+                </div>
+                <div>
+                  <div class="vesselsize">{{ recipe.isVesselCircle ? (radiusName + ': ' ) : ( widthName + ': ') }}</div>
+                  <div class="vesselsize">{{ recipe.vessel[0].widthOrR + ' cm'}}</div>
+                  <div *ngIf="!isVesselCircle">
+                    <div class="vesselsize">{{ lengthName + ': '}}</div>
+                    <div class="vesselsize">{{ recipe.vessel[0].lengthOrR + ' cm'}}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col m-0 p-0">
+                <div class="">
+                  {{ yourVessel }}
+                </div>
+                <div>
+                  <div class="vesselsize">{{ isVesselCircle ? radiusName : widthName }}:</div>
+                  <input type="number" class="vesselinput" [(ngModel)]="vesselWidthOrR" ngModel>
+                  <div *ngIf="!isVesselCircle">
+                    <div class="vesselsize">{{ lengthName }}:</div>
+                    <input type="number" class="vesselinput" [(ngModel)]="vesselLengthOrR" ngModel>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row m-0 p-0">
+    <div class="col m-0 p-0">
+      <ul>
+        <ng-container *ngFor="let desc of recipe.descriptions">
+          <li class="desc">
+            {{ desc }}
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</div>

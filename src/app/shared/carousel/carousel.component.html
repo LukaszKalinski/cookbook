@@ -1,12 +1,12 @@
 <div class="cont text-center" >
   <div class="contitem" [@carousel]="selectedIndex">
-    <app-recipe-single [recipe]="arr[leftIndex]" *ngIf="leftIndex !== null"></app-recipe-single>
+    <app-recipe-single [recipe]="arr[leftIndex]" *ngIf="leftIndex !== null" (click)="editItem(leftIndex)"></app-recipe-single>
   </div>
   <div class="contitem" [@carousel]="selectedIndex">
-    <app-recipe-single [recipe]="arr[selectedIndex]"></app-recipe-single>
+    <app-recipe-single [recipe]="arr[selectedIndex]" (click)="editItem(selectedIndex)"></app-recipe-single>
   </div>
   <div class="contitem" [@carousel]="selectedIndex">
-    <app-recipe-single [recipe]="arr[rightIndex]" *ngIf="rightIndex !== null"></app-recipe-single>
+    <app-recipe-single [recipe]="arr[rightIndex]" *ngIf="rightIndex !== null" (click)="editItem(rightIndex)"></app-recipe-single>
   </div>
 </div>
 
@@ -22,4 +22,8 @@
   <div class="col m-0 p-0 mx-auto my-auto">
     <fa-icon [icon]="rightIcon" (click)="moveCarousel('right')" size="3x" style="color: black"></fa-icon>
   </div>
+</div>
+
+<div class="edititem" *ngIf="selectedItemIndex !== null">
+  <app-edit-recipe [recipe]="arr[selectedItemIndex]"></app-edit-recipe>
 </div>

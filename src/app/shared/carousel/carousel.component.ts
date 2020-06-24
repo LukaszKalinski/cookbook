@@ -22,6 +22,7 @@ export class CarouselComponent implements OnInit {
   rightIcon = faChevronCircleRight;
   leftIcon = faChevronCircleLeft;
   circleIcon = faCircle;
+  selectedItemIndex = null;
 
   constructor() { }
 
@@ -72,4 +73,8 @@ export class CarouselComponent implements OnInit {
     return result;
   }
 
+  editItem(num: number) {
+    console.log(num);
+    this.selectedItemIndex = num;
+  }
 }

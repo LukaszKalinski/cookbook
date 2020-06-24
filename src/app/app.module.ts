@@ -33,6 +33,7 @@ import { LoginPageComponent } from './pages/user-page/login-page/login-page.comp
 import { UserRecipesComponent } from './pages/user-page/user-recipes/user-recipes.component';
 import { EditRecipeComponent } from './pages/user-page/edit-recipe/edit-recipe.component';
 import { CarouselComponent } from './shared/carousel/carousel.component';
+import { MainComponent } from './pages/main/main.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { CarouselComponent } from './shared/carousel/carousel.component';
     UserRecipesComponent,
     EditRecipeComponent,
     CarouselComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
